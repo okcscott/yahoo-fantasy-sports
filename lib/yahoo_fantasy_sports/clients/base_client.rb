@@ -1,5 +1,3 @@
-require 'http'
-
 module YahooFantasySports
   module Clients
     class BaseClient
