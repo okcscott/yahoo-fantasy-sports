@@ -2,7 +2,7 @@ require 'oauth2'
 
 module YahooFantasySports
   class Client
-    attr_accessor :client_id, :client_secret, :oauth2_client
+    attr_accessor :client_id, :client_secret, :oauth2_client, :access_token
 
     def initialize(client_id, client_secret)
       @client_id = client_id
@@ -27,7 +27,11 @@ module YahooFantasySports
     end
 
     def refresh_token(refresh_token)
-      OAuth2::AccessToken.new(@oauth2_client, {refresh_token: refresh_token}).refresh!
+      @access_token = OAuth2::AccessToken.from_hash(@oauth2_client, {refresh_token: refresh_token}).refresh!
+    end
+
+    def leagues
+      @leagues ||= YahooFantasySports::Clients::Leagues.new(self)
     end
   end
 end
