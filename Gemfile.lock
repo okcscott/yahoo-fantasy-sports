@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yahoo-fantasy-sports (0.2.22)
+    yahoo-fantasy-sports (0.3.6)
       oauth2 (~> 2.0.9)
 
 GEM

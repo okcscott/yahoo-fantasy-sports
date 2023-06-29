@@ -33,5 +33,9 @@ module YahooFantasySports
     def leagues
       @leagues ||= YahooFantasySports::Clients::Leagues.new(self)
     end
+
+    def teams
+      @teams ||= YahooFantasySports::Clients::Teams.new(self)
+    end
   end
 end

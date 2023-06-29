@@ -2,7 +2,7 @@ module YahooFantasySports
   class League < BaseResource
     attr_reader :league_key, :name, :num_teams, :season
 
-    def self.load_from_response(data, client = nil)
+    def self.load_from_response(data)
       data = JSON.parse(data) if data.is_a?(String)
       mapped_data = []
 
