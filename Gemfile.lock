@@ -1,13 +1,13 @@
 PATH
   remote: .
   specs:
-    yahoo-fantasy-sports (0.3.6)
+    yahoo-fantasy-sports (0.4.22)
       oauth2 (~> 2.0.9)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    faraday (2.7.8)
+    faraday (2.7.9)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
