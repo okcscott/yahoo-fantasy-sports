@@ -5,7 +5,8 @@ module YahooFantasySports
         get(
           "/league/#{league_key}/teams",
           params,
-          YahooFantasySports::Team
+          YahooFantasySports::Team,
+          ["fantasy_content","league", 1, "teams"]
         )
       end
     end

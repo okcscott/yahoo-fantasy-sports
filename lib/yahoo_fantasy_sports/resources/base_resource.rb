@@ -10,7 +10,7 @@ module YahooFantasySports
       end
     end
 
-    def self.load_from_response(data)
+    def self.load_from_response(data, path_to_object = nil)
       if data.is_a?(Array)
         data.map { |d| new(d) }
       else

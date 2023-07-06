@@ -5,7 +5,8 @@ module YahooFantasySports
         get(
           "/league/#{league_key}/transactions;types=add,drop,trade",
           params,
-          YahooFantasySports::Transaction
+          YahooFantasySports::Transaction,
+          ["fantasy_content", "league", 1, "transactions"]
         )
       end
     end

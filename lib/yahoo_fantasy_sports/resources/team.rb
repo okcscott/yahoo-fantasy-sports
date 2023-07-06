@@ -2,11 +2,11 @@ module YahooFantasySports
   class Team < BaseResource
     attr_reader :name, :team_key
 
-    def self.load_from_response(data)
+    def self.load_from_response(data, path_to_object = nil)
       data = JSON.parse(data) if data.is_a?(String)
       mapped_data = []
 
-      ts = data.dig("fantasy_content","league",1, "teams")
+      ts = path_to_object ? data.dig(*path_to_object) : data
 
       mapped_data = self.map_teams(ts)
 

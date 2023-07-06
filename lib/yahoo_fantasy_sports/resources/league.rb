@@ -2,13 +2,13 @@ module YahooFantasySports
   class League < BaseResource
     attr_reader :league_key, :name, :num_teams, :season
 
-    def self.load_from_response(data)
+    def self.load_from_response(data, path_to_object = nil)
       data = JSON.parse(data) if data.is_a?(String)
       mapped_data = []
 
-      ls = data.dig('fantasy_content', 'users', '0', 'user', 1, 'games', '0', 'game', 1, 'leagues')
+      ls = path_to_object ? data.dig(*path_to_object) : data
 
-      mapped_data = self.mapLeagues(ls)
+      mapped_data = ls.has_key?("count") ? self.mapLeagues(ls) : ls
 
       super(mapped_data)
     end
